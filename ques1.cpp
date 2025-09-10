@@ -39,41 +39,43 @@ void insertElement() {
         cout << "Array is full";
     }
     else{
-    int pos, val;
+    int pos, val,temp=arr[pos];
     cout << "Enter position ";
     cin >> pos;
-    if (pos < 1 || pos > n + 1) {
+    if (pos < 1 || pos > n) {
         cout << "Invalid position";
     }
     else{
     cout << "Enter value: ";
     cin >> val;
-    for (int i = n; i >= pos; i--) {
-        arr[i] = arr[i - 1];
+    for (int i = n-1; i >= pos; i--) {
+        arr[i+1] = arr[i];
     }
-    arr[pos - 1] = val;
+    arr[pos] = val;
     n++;
      }
    }
+ return temp;
  }
 void deleteElement() {
     if (n == 0) {
         cout << "Array is empty";
     }
     else{
-    int pos;
+    int pos,temp=arr[pos];
     cout << "Enter position";
     cin >> pos;
     if (pos < 1 || pos > n) {
         cout << "Invalid position";
     }
     else{
-    for (int i = pos - 1; i < n - 1; i++) {
-        arr[i] = arr[i + 1];
+    for (int i = pos; i < n - 2; i++) {
+        arr[i] = arr[i+1];
     }
     n--;
 }
 }
+ return temp;
 }
 void linearSearch() {
     if (n == 0) {
@@ -119,3 +121,4 @@ int main() {
         }
     return 0;
 }
+
